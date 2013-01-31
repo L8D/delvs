@@ -160,7 +160,7 @@ namespace brainfuck
 
 	template <typename Input, typename Output, typename Cell> class unsafe_interpreter: public ast::node_visitor
 	{
-			const static int ARRAY_SIZE = 32768;
+			const static int ARRAY_SIZE = 30000;
 			Cell _array[ARRAY_SIZE];
 			Cell *_ptr;
 			Input _input;
