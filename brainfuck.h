@@ -151,8 +151,10 @@ namespace brainfuck
 				case ']':
 					parser.branch_end();
 					break;
+
         case '=':
-          if 
+          parser.branch_break();
+          break;
 
 				default:
 					// everything else is comments
@@ -193,6 +195,13 @@ namespace brainfuck
 			{
 				*_ptr = _input();
 			}
+      virtual bool visit(ast::branchbreak*)
+      {
+        if (*_ptr == 0)
+        {
+          break;
+        }
+      }
 			virtual bool visit(ast::branch *branch)
 			{
 				return *_ptr != 0;
@@ -311,5 +320,9 @@ namespace brainfuck
 			{
 				_scope.pop();
 			}
+      void branch_break()
+      {
+        _scope.top()->push_back(new ast::branchbreak());
+      }
 	};
 };
