@@ -1,5 +1,5 @@
 CXXFLAGS=-std=c++0x -Os -fno-rtti
-all: interpreter compiler
+all: compiler
 
 interpreter: interpreter.cc brainfuck.h
 

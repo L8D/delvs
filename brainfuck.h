@@ -275,11 +275,11 @@ namespace brainfuck
 			}
 			virtual void visit(ast::program*)
 			{
-				std::cout << "#include <stdio.h>" << std::endl << "void main(int argc, char *argv[]){" << std::endl << "char array[30000];char *ptr=array;" << std::endl;
+				std::cout << "#include <stdio.h>" << std::endl << "int main(int argc, char *argv[]){" << std::endl << "char array[30000];char *ptr=array;" << std::endl;
 			}
 			virtual void post_visit(ast::program*)
 			{
-				std::cout << "fflush(stdout);" << std::endl << "}" << std::endl;
+				std::cout << "fflush(stdout);return 0;" << std::endl << "}" << std::endl;
 			}
 	};
 
