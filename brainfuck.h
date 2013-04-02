@@ -84,6 +84,11 @@ namespace brainfuck
 		{
 			void visit(node_visitor &visitor) { visitor.visit(this); }
 		};
+    
+    struct branchbreak: public node
+    {
+      void visit(node_visitor &visitor) { visitor.visit(this); }
+    }
 
 		struct branch: public container_node
 		{
