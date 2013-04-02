@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	{
 		try
 		{
-			brainfuck::parser p;
+			delvs::parser p;
 			ifstream is;
 			is.open(argv[i], ios::binary);
 		
@@ -21,9 +21,9 @@ int main(int argc, char *argv[])
 				char buf[4096];
 				is.read(buf, 4096);
 				if (is.gcount() > 0)
-					brainfuck::lexer(buf, is.gcount(), p);
+					delvs::lexer(buf, is.gcount(), p);
 			}
-			brainfuck::cout_visitor visitor;
+			delvs::cout_visitor visitor;
 			p.program()->visit(visitor);
 		}
 		catch (const exception &e)
