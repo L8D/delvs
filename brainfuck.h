@@ -200,13 +200,15 @@ namespace brainfuck
 			{
 				*_ptr = _input();
 			}
-      virtual bool visit(ast::branchbreak*)
-      {
-        if (*_ptr == 0)
-        {
-          break;
-        }
-      }
+      /*
+       *virtual void visit(ast::branchbreak*)
+       *{
+       *  if (*_ptr == 0)
+       *  {
+       *    break;
+       *  }
+       *}
+       */
 			virtual bool visit(ast::branch *branch)
 			{
 				return *_ptr != 0;
