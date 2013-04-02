@@ -151,6 +151,8 @@ namespace brainfuck
 				case ']':
 					parser.branch_end();
 					break;
+        case '=':
+          if 
 
 				default:
 					// everything else is comments
@@ -245,6 +247,10 @@ namespace brainfuck
 				std::cout << "while (*ptr){" << std::endl;
 				return true;
 			}
+      virtual bool visit(ast::branchbreak*)
+      {
+        std::cout << "if (!*ptr) { break; }" << std::endl;
+      }
 			virtual void post_visit(ast::branch*)
 			{
 				std::cout << "}" << std::endl;
