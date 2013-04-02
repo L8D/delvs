@@ -14,6 +14,7 @@ namespace brainfuck
 		struct decrement;
 		struct output;
 		struct input;
+    struct branchbreak;
 		struct branch;
 		struct program;
 
@@ -25,6 +26,7 @@ namespace brainfuck
 			virtual void visit(decrement*)=0;
 			virtual void visit(output*)=0;
 			virtual void visit(input*)=0;
+      virtual void visit(branchbreak*)=0;
 			virtual bool visit(branch*)=0;
 			virtual void post_visit(branch*)=0;
 			virtual void visit(program*)=0;
@@ -88,7 +90,7 @@ namespace brainfuck
     struct branchbreak: public node
     {
       void visit(node_visitor &visitor) { visitor.visit(this); }
-    }
+    };
 
 		struct branch: public container_node
 		{
@@ -263,7 +265,7 @@ namespace brainfuck
 				std::cout << "while (*ptr){" << std::endl;
 				return true;
 			}
-      virtual bool visit(ast::branchbreak*)
+      virtual void visit(ast::branchbreak*)
       {
         std::cout << "if (!*ptr) { break; }" << std::endl;
       }
