@@ -1,48 +1,44 @@
 #include <stdio.h>
+#include <stdbool.h>
 
-void lexer(const char *code, size_t len, struct *data) {
-  int n[30000];
-  int *c;
-  c = &n[0];
-  char doBreak = 0;
-  for (const char *p = code ; doBreak || p != code + len ; ++p)
-    switch (*p) {
+void lexer(const char *source, short int *p) {
+  bool endLoop;
+  for (const char *c = source; endLoop || *c == EOF; c++) {
+    switch (*c) {
       case '>':
-        ++c;
+        ++p;
         break;
 
       case '<':
-        --c;
+        --p;
         break;
 
       case '+':
-        ++*c;
+        ++*p;
         break;
 
       case '-':
-        --*c;
+        --*p;
         break;
 
       case '.':
-        putchar(*c);
+        putchar(*p);
         break;
 
       case ',':
-        *c = getchar();
+        *p += getchar();
         break;
 
       case '[':
         break;
 
       case ']':
-        break;
-
-      case '=':
-        if(!*c) doBreak = 1;
+        if(!*p) endLoop = true;
         break;
 
       default:
         // everything else is comments
         break;
     }
-};
+  }
+}
