@@ -38,7 +38,6 @@ int main(int argc, char *argv[]) {
       fclose(fp);
 
       const char *code = file;
-      code = malloc(sizeof(*file));
       short int data[30000];
       short int *p = &data[15000];
 
@@ -48,11 +47,6 @@ int main(int argc, char *argv[]) {
       printf("File not found!");
     }
   }
-
-  const char *code = "+++++ +++++ [>+++++ +++++<-]> ++++ . + .";
-  short int data[30000];
-  short int *p = &data[15000];
-  lexer(code, p);
 
   return 0;
 }
