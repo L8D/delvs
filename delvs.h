@@ -31,7 +31,7 @@ void lexer(const char **c, short int *p) {
 
       case '[':
         while(*p) {
-          *c = cc;
+          *c = cc; // restore char position to start of loop
           lexer(c, p);
         }
         break;
