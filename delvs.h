@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 void lexer(const char *source, short int *p) {
-  for (const char *c = source; *c != NULL; c++) {
+  for (const char *c = source; *c; c++) {
     switch (*c) {
       case '>':
         ++p;
