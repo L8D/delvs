@@ -3,7 +3,6 @@
 void lexer(const char **c, short int *p) {
   const char *cc = *c;
   for (; **c; ++*c) {
-    cc = *c + 1;
     switch (**c) {
       case '>':
         ++p;
@@ -30,6 +29,7 @@ void lexer(const char **c, short int *p) {
         break;
 
       case '[':
+        cc = *c + 1;
         while(*p) {
           *c = cc; // restore char position to start of loop
           lexer(c, p);
