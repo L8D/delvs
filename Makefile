@@ -1,11 +1,11 @@
 CC=gcc
-CFLAGS=-c -Wall -std=gnu99
+CFLAGS=-Wall -std=gnu99
 LDFLAGS=
-SOURCES=delvs.h
+SOURCES=main.c
 OBJECTS=$(SOURCES:.c=.o)
 
 all:
-	$(CC) $(CFLAGS) $(SOURCES)
+	$(CC) $(CFLAGS) $(SOURCES) -o $(OBJECTS)
 
 clean:
 	rm *.o

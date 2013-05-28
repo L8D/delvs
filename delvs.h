@@ -2,8 +2,7 @@
 #include <stdbool.h>
 
 void lexer(const char *source, short int *p) {
-  bool endLoop;
-  for (const char *c = source; endLoop || *c == EOF; c++) {
+  for (const char *c = source; *c != NULL; c++) {
     switch (*c) {
       case '>':
         ++p;
@@ -30,10 +29,13 @@ void lexer(const char *source, short int *p) {
         break;
 
       case '[':
+        while(*p) {
+          lexer(c, p);
+        }
         break;
 
       case ']':
-        if(!*p) endLoop = true;
+        return;
         break;
 
       default:
