@@ -34,6 +34,9 @@ void lexer(const char *c, short int *p) {
       case ']':
         return;
 
+      case EOF:
+        return;
+
       default:
         // everything else is comments
         break;
@@ -43,7 +46,6 @@ void lexer(const char *c, short int *p) {
 /*
  * Usage:
  * const char *code = ",[.,]";
- * code = malloc(sizeof(*code));
  * short int data[30000];
  * short int *p = &data[0];
  * lexer(code, p);
