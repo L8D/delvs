@@ -1,8 +1,10 @@
 #include <stdio.h>
 
-void lexer(const char *c, short int *p) {
-  for (; *c; c++) {
-    switch (*c) {
+void lexer(const char **c, short int *p) {
+  const char *cc = *c;
+  for (; **c; ++*c) {
+    cc = *c + 1;
+    switch (**c) {
       case '>':
         ++p;
         break;
@@ -28,7 +30,10 @@ void lexer(const char *c, short int *p) {
         break;
 
       case '[':
-        while(*p) lexer(c, p);
+        while(*p) {
+          *c = cc;
+          lexer(c, p);
+        }
         break;
 
       case ']':
