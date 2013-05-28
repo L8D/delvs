@@ -36,7 +36,6 @@ void lexer(const char *source, short int *p) {
 
       case ']':
         return;
-        break;
 
       default:
         // everything else is comments
