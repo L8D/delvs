@@ -50,8 +50,8 @@ void lexer(const char **c, short int *p) {
 }
 /*
  * Usage:
- * const char *code = ",[.,]";
+ * const char *code = ",[.[-],]";
  * short int data[30000];
  * short int *p = &data[0];
- * lexer(code, p);
+ * lexer(&code, p);
  */
