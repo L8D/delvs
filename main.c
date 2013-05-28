@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
       lexer(&code, p);
     }
     else {
-      printf("File not found!");
+      printf("File not found!\n");
     }
   }
 
