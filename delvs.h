@@ -28,9 +28,7 @@ void lexer(const char *source, short int *p) {
         break;
 
       case '[':
-        while(*p) {
-          lexer(c, p);
-        }
+        while(*p) lexer(c, p);
         break;
 
       case ']':
@@ -42,3 +40,10 @@ void lexer(const char *source, short int *p) {
     }
   }
 }
+/*
+ * Usage:
+ * const char *code = ",[.,]";
+ * short int data[30000];
+ * short int *p = &data[0];
+ * lexer(code, p);
+ */
