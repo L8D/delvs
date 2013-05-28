@@ -12,3 +12,6 @@
 *.lai
 *.la
 *.a
+
+# Compiled executable binary
+delvs

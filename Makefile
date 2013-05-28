@@ -11,4 +11,4 @@ objects:
 	$(CC) $(CFLAGS) $(SOURCES) -o $(OBJECTS)
 
 clean:
-	rm *.o delvs
+	rm delvs
