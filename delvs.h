@@ -39,6 +39,14 @@ const char *lexer(const char *c, char *p) {
       case ']':
         return c;
 
+      case ':':
+        printf("%hhd", *p);
+        break;
+
+      case ';':
+        scanf("%hhd", p);
+        break;
+
       default:
         // everything else is comments
         break;
