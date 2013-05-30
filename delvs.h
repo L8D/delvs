@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-const char *lexer(const char *c, short int *p) {
+const char *lexer(const char *c, char *p) {
   const char *cc = c;
   while(*c) {
     switch (*c++) {
@@ -49,7 +49,7 @@ const char *lexer(const char *c, short int *p) {
 /*
  * Usage:
  * const char *code = ",[.,]";
- * short int data[30000];
- * short int *p = &data[0];
+ * char data[30000];
+ * char *p = &data[0];
  * lexer(&code, p);
  */

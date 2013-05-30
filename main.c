@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
       fclose(fp);
 
       const char *code = file;
-      short int data[30000];
+      char data[30000];
 
       lexer(code, &data[15000]);
     }
