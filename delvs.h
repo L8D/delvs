@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-void lexer(const char **c, short int *p) {
-  const char *cc = *c;
-  for (; **c; ++*c) {
-    switch (**c) {
+const char *lexer(const char *c, short int *p) {
+  const char *cc = c;
+  while(*c) {
+    switch (*c++) {
       case '>':
         ++p;
         break;
@@ -29,24 +29,22 @@ void lexer(const char **c, short int *p) {
         break;
 
       case '[':
-        cc = *c + 1;
+        cc = c;
         while(*p) {
-          *c = cc; // restore char position to start of loop
-          lexer(c, p);
+          c = cc; // restore char position to start of loop
+          c = lexer(c + 1, p);
         }
         break;
 
       case ']':
-        return;
-
-      case EOF:
-        return;
+        return c;
 
       default:
         // everything else is comments
         break;
     }
   }
+  return c;
 }
 /*
  * Usage:
