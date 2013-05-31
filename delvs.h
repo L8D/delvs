@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-const char *lexer(const char *c, char *p) {
+const char *lexer(const char *c, char *p, char *m) {
   const char *cc = c;
   while(*c) {
     switch (*c++) {
@@ -32,7 +32,7 @@ const char *lexer(const char *c, char *p) {
         cc = c;
         while(*p) {
           c = cc; // restore char position to start of loop
-          c = lexer(c + 1, p);
+          c = lexer(c + 1, p, m);
         }
         break;
 
@@ -45,6 +45,10 @@ const char *lexer(const char *c, char *p) {
 
       case ';':
         scanf("%hhd", p);
+        break;
+
+      case '#':
+        *m = *p;
         break;
 
       default:
