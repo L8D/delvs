@@ -1,6 +1,16 @@
 #include <stdio.h>
 
-const char *lexer(const char *c, char *p, FILE *f) {
+struct data{
+  const char *code;
+  char vars[30000];
+  char *pointer;
+  FILE *file;
+};
+
+void lexer(struct data *g) {
+#define c (*g).code
+#define p (*g).pointer
+#define f (*g).file
   const char *cc = c;
   while(*c) {
     switch (*c++) {
@@ -29,15 +39,15 @@ const char *lexer(const char *c, char *p, FILE *f) {
         break;
 
       case '[':
-        cc = c;
+        cc = c + 1;
         while(*p) {
           c = cc; // restore char position to start of loop
-          c = lexer(c + 1, p, f);
+          lexer(g);
         }
         break;
 
       case ']':
-        return c;
+        return;
 
       case ':':
         printf("%hhd", *p);
@@ -65,12 +75,12 @@ const char *lexer(const char *c, char *p, FILE *f) {
         break;
     }
   }
-  return c;
 }
 /*
  * Usage:
- * const char *code = ",[.,]";
- * char data[30000];
- * char *p = &data[0];
- * lexer(&code, p);
+ *  struct g g;
+ *  g.code = file;
+ *  g.pointer = &g.data[15000];
+ *  g.file = NULL;
+ *  lexer(&g);
  */

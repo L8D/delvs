@@ -37,11 +37,13 @@ int main(int argc, char *argv[]) {
       free(temp);
       fclose(fp);
 
-      const char *code = file;
-      char data[30000];
-      FILE *filep = NULL;
+      struct data g;
 
-      lexer(code, &data[15000], filep);
+      g.code = file;
+      g.pointer = &g.data[15000];
+      g.file = NULL;
+
+      lexer(&g);
     }
     else {
       printf("File not found!\n");
