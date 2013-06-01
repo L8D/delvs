@@ -30,7 +30,6 @@ const char *lexer(const char *c, char *p, FILE *f) {
 
       case '[':
         cc = c;
-        printf("start stack\n");
         while(*p) {
           c = cc; // restore char position to start of loop
           c = lexer(c + 1, p, f);
@@ -38,7 +37,6 @@ const char *lexer(const char *c, char *p, FILE *f) {
         break;
 
       case ']':
-        printf("%hhd", *p);
         return c;
 
       case ':':
@@ -50,7 +48,8 @@ const char *lexer(const char *c, char *p, FILE *f) {
         break;
 
       case '#':
-        f = fopen(p + 1, "rw");
+        // if cell is 1, open in write mode, otherwise always open in read mode
+        f = fopen(p + 1, *p == 1 ? "w" : "r");
         break;
 
       case '`':
