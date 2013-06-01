@@ -11,9 +11,7 @@ struct data {
 };
 
 void dummyLexer(struct data *g) {
-  while(*c) {
-    if(*c++ == ']') return;
-  }
+  while(*c) if(*c++ == ']') return;
 }
 
 void lexer(struct data *g) {
@@ -86,7 +84,7 @@ void lexer(struct data *g) {
 }
 /*
  * Usage:
- *  struct g g;
+ *  struct data g;
  *  g.code = file;
  *  g.pointer = &g.data[15000];
  *  g.file = NULL;
