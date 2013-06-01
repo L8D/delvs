@@ -8,9 +8,9 @@ struct data {
 };
 
 void lexer(struct data *g) {
-#define c (*g).code
-#define p (*g).pointer
-#define f (*g).file
+#define c g->code
+#define p g->pointer
+#define f g->file
   const char *cc = c;
   while(*c) {
     switch (*c++) {
@@ -39,7 +39,7 @@ void lexer(struct data *g) {
         break;
 
       case '[':
-        cc = c + 1;
+        cc = c;
         while(*p) {
           c = cc; // restore char position to start of loop
           lexer(g);
