@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-const char *lexer(const char *c, char *p, char *m) {
+const char *lexer(const char *c, char *p, FILE *f) {
   const char *cc = c;
   while(*c) {
     switch (*c++) {
@@ -30,13 +30,15 @@ const char *lexer(const char *c, char *p, char *m) {
 
       case '[':
         cc = c;
+        printf("start stack\n");
         while(*p) {
           c = cc; // restore char position to start of loop
-          c = lexer(c + 1, p, m);
+          c = lexer(c + 1, p, f);
         }
         break;
 
       case ']':
+        printf("%hhd", *p);
         return c;
 
       case ':':
@@ -48,7 +50,15 @@ const char *lexer(const char *c, char *p, char *m) {
         break;
 
       case '#':
-        *m = *p;
+        f = fopen(p + 1, "rw");
+        break;
+
+      case '`':
+        *p = fgetc(f);
+        break;
+
+      case '!':
+        fputc(*p, f);
         break;
 
       default:

@@ -39,8 +39,9 @@ int main(int argc, char *argv[]) {
 
       const char *code = file;
       char data[30000];
+      FILE *filep = NULL;
 
-      lexer(code, &data[15000]);
+      lexer(code, &data[15000], filep);
     }
     else {
       printf("File not found!\n");
