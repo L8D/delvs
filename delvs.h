@@ -50,7 +50,6 @@ void lexer(struct data *g) {
         while(*p) {
           c = cc; // restore char position to start of loop
           lexer(g);
-          if(*p == EOF) break;
         }
         break;
 
@@ -72,6 +71,7 @@ void lexer(struct data *g) {
 
       case '`':
         *p = fgetc(f);
+        if(*p == EOF) *p = 0;
         break;
 
       case '!':
