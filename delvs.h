@@ -1,4 +1,7 @@
 #include <stdio.h>
+#define c g->code
+#define p g->pointer
+#define f g->file
 
 struct data {
   const char *code;
@@ -7,10 +10,13 @@ struct data {
   FILE *file;
 };
 
+void dummyLexer(struct data *g) {
+  while(*c) {
+    if(*c++ == ']') return;
+  }
+}
+
 void lexer(struct data *g) {
-#define c g->code
-#define p g->pointer
-#define f g->file
   const char *cc = c;
   while(*c) {
     switch (*c++) {
@@ -40,9 +46,11 @@ void lexer(struct data *g) {
 
       case '[':
         cc = c;
+        if(!*p) dummyLexer(g);
         while(*p) {
           c = cc; // restore char position to start of loop
           lexer(g);
+          if(*p == EOF) break;
         }
         break;
 
