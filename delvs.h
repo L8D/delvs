@@ -48,7 +48,7 @@ const char *lexer(const char *c, char *p, FILE *f) {
         break;
 
       case '#':
-        // if cell is 1, open in write mode, otherwise always open in read mode
+        // open in read mode unless the cell is 1
         f = fopen(p + 1, *p == 1 ? "w" : "r");
         break;
 
