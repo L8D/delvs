@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-struct data{
+struct data {
   const char *code;
   char vars[30000];
   char *pointer;
