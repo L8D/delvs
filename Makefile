@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -std=gnu99 -Werror
+CFLAGS=-Wall -std=c11 -Werror
 LDFLAGS=
 SOURCES=main.c
 OBJECTS=$(SOURCES:.c=.o)
