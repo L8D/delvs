@@ -68,8 +68,7 @@ void lexer(struct data *g) {
         break;
 
       case '`':
-        *p = fgetc(f);
-        if(*p == EOF) *p = 0;
+        if((*p = fgetc(f)) == EOF) *p = 0;
         break;
 
       case '!':
