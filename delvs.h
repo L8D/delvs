@@ -10,9 +10,9 @@ struct data {
   FILE *file;
 };
 
-void dummyLexer(struct data *g) {
-  while(*c) if(*c++ == ']') return;
-}
+void dlexer(struct data *g)
+  while(*c) if(*c++ == ']')
+    return;
 
 void lexer(struct data *g) {
   const char *cc = c;
@@ -44,7 +44,7 @@ void lexer(struct data *g) {
 
       case '[':
         cc = c;
-        if(!*p) dummyLexer(g);
+        if(!*p) dlexer(g);
         while(*p) {
           c = cc; // restore char position to start of loop
           lexer(g);
