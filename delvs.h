@@ -10,13 +10,14 @@ struct data {
   FILE *file;
 };
 
-void dlexer(struct data *g)
+void dlexer(struct data *g) {
   while(*c) if(*c++ == ']')
     return;
+}
 
 void lexer(struct data *g) {
   const char *cc = c;
-  while(*c) {
+  while(*c)
     switch (*c++) {
       case '>':
         ++p;
@@ -79,7 +80,6 @@ void lexer(struct data *g) {
         // everything else is comments
         break;
     }
-  }
 }
 /*
  * Usage:
