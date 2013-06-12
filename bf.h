@@ -3,15 +3,15 @@
 #define p g->pointer
 #define f g->file
 
-struct data {
+struct Data {
   const char *code;
   char vars[30000];
   char *pointer;
 };
 
-void dummyLexer(struct data *g) { while(*c) if(*c++ == ']') return; }
+void dummyLexer(struct Data *g) { while(*c) if(*c++ == ']') return; }
 
-void lexer(struct data *g) {
+void lexer(struct Data *g) {
   const char *cc = c;
   while(*c) {
     switch (*c++) {
@@ -60,7 +60,7 @@ void lexer(struct data *g) {
 }
 /*
  * Usage:
- *  struct data g;
+ *  struct Data g;
  *  g.code = file;
  *  g.pointer = &g.data[15000];
  *  lexer(&g);
