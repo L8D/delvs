@@ -10,12 +10,12 @@ struct Data {
   FILE *file;
 };
 
-void dlexer(struct data *g) {
+void dlexer(struct Data *g) {
   while(*c) if(*c++ == ']')
     return;
 }
 
-void lexer(struct data *g) {
+void lexer(struct Data *g) {
   const char *cc = c;
   while(*c)
     switch (*c++) {
