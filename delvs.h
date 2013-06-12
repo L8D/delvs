@@ -3,7 +3,7 @@
 #define p g->pointer
 #define f g->file
 
-struct data {
+struct Data {
   const char *code;
   char vars[30000];
   char *pointer;
@@ -83,9 +83,8 @@ void lexer(struct data *g) {
 }
 /*
  * Usage:
- *  struct data g;
+ *  struct Data g;
  *  g.code = file;
  *  g.pointer = &g.data[15000];
- *  g.file = NULL;
  *  lexer(&g);
  */

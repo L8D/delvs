@@ -37,11 +37,10 @@ int main(int argc, char *argv[]) {
       free(temp);
       fclose(fp);
 
-      struct data g;
+      struct Data g;
 
       g.code = file;
       g.pointer = &g.vars[15000];
-      g.file = NULL;
 
       lexer(&g);
     }
