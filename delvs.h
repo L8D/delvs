@@ -95,7 +95,8 @@ void lexer(struct Data *g) {
 /*
  * Usage:
  *  struct Data g;
- *  g.code = file;
+ *  g.code = "code here";
+ *  g.bit = 7;
  *  g.pointer = &g.data[15000];
  *  lexer(&g);
  */
