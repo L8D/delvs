@@ -63,8 +63,7 @@ def lexer d
   end
 end
 
-data = RuntimeData.new
-
-data.c = "+++++ +++++ [ > +++++ +++++ > + << - ] > ++++ . + . > ."
-
-lexer data
+# example usage:
+# data = RuntimeData.new
+# data.c = "+++++ +++++ [ > +++++ +++++ > + << - ] > ++++ . + . > ."
+# lexer data
