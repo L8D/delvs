@@ -13,3 +13,54 @@ Additions
 - `!` write char from current cell to file. Code: `fputc(*p, f);`
 - `"` increment current bit position by 1. (psuedo)Code: `b++;`
 - `'` flip bit at current bit position, then incrment current bit position by 1. Code: `*p ^= (1 << b)`
+
+Example
+-------
+Turn your code that looks like this:
+
+    +++++ +++++ [
+      > +++++ ++
+      > +++++ +++++
+      > +++
+      >+
+      <<<< -
+    ]
+    > ++ . H
+    > + . e
+    +++++ ++ . . ll
+    +++ . o
+    > ++ .
+    << +++++ +++++ +++++ . W
+    > . +++ . or
+    ------ . -------- . ld
+    > + . !
+    > .
+
+Into this:
+
+    01001000 H
+    "'""'""".>
+    01100101 e
+    "''""'"'.>
+    01101100 l
+    "''"''"".>
+    01101100 l
+    "''"''"".>
+    01101111 o
+    "''"''''.>
+    00100000
+    ""'""""".>
+    01010111 W
+    "'"'"'''.>
+    01101111 o
+    "''"''''.>
+    01110010 r
+    "'''""'".>
+    01101100 l
+    "''"''"".>
+    01100100 d
+    "''""'"".>
+    00100001 !
+    ""'""""'.>
+    00001010 \n
+    """"'"'".>
