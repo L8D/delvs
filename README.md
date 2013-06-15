@@ -15,53 +15,76 @@ Additions
 - `'` flip bit at current bit position, then incrment current bit position by 1. Code: `*p ^= (1 << b)`
 - `\[...]` ignore EVERYTHING between the two brackets. Remember the beginned needs to be `\[`
 
-Example
--------
-Turn your code that looks like this:
+Examples
+--------
+Setting entire cell values with just the bit intructions is as easy as converting 0's to `"`s and 1's to `'`s.
+
+    01001000 = 72
+    "'""'""" . >
+    01101001 = 105
+    "''"'""' .
+
+Block comments are very straight forward to use, just plant a `\[` when you start "commenting" and a `]` when you're done.
 
     +++++ +++++ [
       > +++++ ++
       > +++++ +++++
+      \[This is a well placed comment. See, all these code intrustions aren't messing with the program unlike vanilla Brainfuck]
       > +++
-      >+
+      > +
       <<<< -
     ]
-    > ++ . H
-    > + . e
-    +++++ ++ . . ll
-    +++ . o
     > ++ .
-    << +++++ +++++ +++++ . W
-    > . +++ . or
-    ------ . -------- . ld
-    > + . !
+    > + .
+    +++++ ++ . .
+    \[Another intruding comment.]
+    +++ .
+    > ++ .
+    << +++++ +++++ +++++ .
+    > . +++ .
+    ------ . -------- .
+    > + .
     > .
 
-Into this:
+How about reading files? Just generate a string as the filename an the use a `#` at the beginning of it. Like so:
 
-    01001000 H
-    "'""'""".>
+    01101101 m
+    "''"''"'
+    01111001 y
+    "''''""'
+    01110100 t
+    "'''"'""
     01100101 e
-    "''""'"'.>
+    "''""'"'
+    01111000 x
+    "''''"""
+    01110100 t
+    "'''"'""
+    01100110 f
+    "''""''"
+    01101001 i
+    "''"'""'
     01101100 l
-    "''"''"".>
-    01101100 l
-    "''"''"".>
-    01101111 o
-    "''"''''.>
-    00100000
-    ""'""""".>
-    01010111 W
-    "'"'"'''.>
-    01101111 o
-    "''"''''.>
-    01110010 r
-    "'''""'".>
-    01101100 l
-    "''"''"".>
-    01100100 d
-    "''""'"".>
-    00100001 !
-    ""'""""'.>
-    00001010 \n
-    """"'"'".>
+    "''"''""
+    01100101 e
+    "''""'"'
+    00101110\[.]
+    ""'"'''"
+    01110100 t
+    "'''"'""
+    01111000 x
+    "''''"""
+    01110100 t
+    "'''"'""
+
+    [<] #
+    \[ standard concatenation loop with file reading(and EOF check) ]
+    `+[-.`+]
+
+Want to give the actual value of the cell when printing? Just add a dot above your intruction!
+
+    01100100 \[ 'd' or 100 ]
+    "''""'""
+
+    . \[ prints "d" ]
+    : \[ prints "100" ]
