@@ -87,6 +87,10 @@ void lexer(struct Data *g) {
         b <= 0 ? b = 7 : b--;
         break;
 
+      case '/':
+        if(*(c + 1) == '[') dlexer(g);
+        break;
+
       default:
         // everything else is comments
         break;
