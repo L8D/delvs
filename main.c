@@ -40,6 +40,7 @@ int main(int argc, char *argv[]) {
       struct Data g;
 
       g.code = file;
+      g.bit = 7;
       g.pointer = &g.vars[15000];
 
       lexer(&g);
