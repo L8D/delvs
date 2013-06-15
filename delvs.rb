@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# NOTE: this proram was just made for the lulz, PLEASE DO NOT USE THIS
+# Please use the actually semi-well written delvs interpreter writtin in C, because this isn't even close to the actual delvs interpreter
 require 'io/console'
 
 class RuntimeData
