@@ -13,7 +13,7 @@ Additions
 - `!` write char from current cell to file. Code: `fputc(*p, f);`
 - `"` increment current bit position by 1. (psuedo)Code: `b++;`
 - `'` flip bit at current bit position, then incrment current bit position by 1. Code: `*p ^= (1 << b)`
-- `\\[...]` ignore EVERYTHING between the two brackets. Remember the beginned needs to be `\\[`
+- `\[...]` ignore EVERYTHING between the two brackets. Remember the beginned needs to be `\[`
 
 Example
 -------
