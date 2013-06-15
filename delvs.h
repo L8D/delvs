@@ -2,11 +2,13 @@
 #define c g->code
 #define p g->pointer
 #define f g->file
+#define b g->bit
 
 struct Data {
   const char *code;
   char vars[30000];
   char *pointer;
+  char bit;
   FILE *file;
 };
 
@@ -74,6 +76,15 @@ void lexer(struct Data *g) {
 
       case '!':
         fputc(*p, f);
+        break;
+
+      case '\'':
+        *p ^= (1 << b);
+        b <= 0 ? b = 7 : b--;
+        break;
+
+      case '"':
+        b <= 0 ? b = 7 : b--;
         break;
 
       default:
