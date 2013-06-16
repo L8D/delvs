@@ -13,7 +13,8 @@ Additions
 - `!` write char from current cell to file. Code: `fputc(*p, f);`
 - `"` increment current bit position by 1. (psuedo)Code: `b++;`
 - `'` flip bit at current bit position, then incrment current bit position by 1. Code: `*p ^= (1 << b)`
-- `\[...]` ignore EVERYTHING between the two brackets. Remember the beginned needs to be `\[`
+- `\ ...` ignore EVERYTHING until newline is reached. `while(*c) if(*c++ == '\') return;`
+- `@` prints value of current cell and surrounding 4 cells. Code:
 
 Examples
 --------
@@ -29,7 +30,7 @@ Block comments are very straight forward to use, just plant a `\[` when you star
     +++++ +++++ [
       > +++++ ++
       > +++++ +++++
-      \[This is a well placed comment. See, all these code intrustions aren't messing with the program unlike vanilla Brainfuck]
+      \ This is a well placed comment. See, all these code intrustions aren't messing with the program unlike vanilla Brainfuck
       > +++
       > +
       <<<< -
@@ -37,7 +38,7 @@ Block comments are very straight forward to use, just plant a `\[` when you star
     > ++ .
     > + .
     +++++ ++ . .
-    \[Another intruding comment.]
+    \ Another intruding comment.
     +++ .
     > ++ .
     << +++++ +++++ +++++ .
@@ -68,7 +69,7 @@ How about reading files? Just generate a string as the filename an the use a `#`
     "''"''""
     01100101 e
     "''""'"'
-    00101110\[.]
+    00101110\.
     ""'"'''"
     01110100 t
     "'''"'""
@@ -78,13 +79,13 @@ How about reading files? Just generate a string as the filename an the use a `#`
     "'''"'""
 
     [<] #
-    \[ standard concatenation loop with file reading(and EOF check) ]
+    \ standard concatenation loop with file reading(and EOF check)
     `+[-.`+]
 
 Want to give the actual value of the cell when printing? Just add a dot above your intruction!
 
-    01100100 \[ 'd' or 100 ]
+    01100100 \ 'd' or 100
     "''""'""
 
-    . \[ prints "d" ]
-    : \[ prints "100" ]
+    . \ prints "d"
+    : \ prints "100"
