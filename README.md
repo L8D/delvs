@@ -15,6 +15,15 @@ Additions
 - `'` flip bit at current bit position, then incrment current bit position by 1. Code: `*p ^= (1 << b)`
 - `\ ...` ignore EVERYTHING until newline is reached. `while(*c) if(*c++ == '\') return;`
 - `@` prints value of current cell and surrounding 4 cells. Code:
+- `$` sleeps the current cell's value in seconds
+
+### To do
+- implement a working socket system
+- implement an stdout flushing system
+- implement runtime args
+- implement namespaces(seperate arrays of 30000 chars)
+- (maybe) implement better way to divide
+- implement full integers
 
 Examples
 --------
