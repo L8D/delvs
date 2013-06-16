@@ -12,11 +12,6 @@ struct Data {
   FILE *file;
 };
 
-void dlexer(struct Data *g, const char s) {
-  while(*c) if(*c++ == s)
-    return;
-}
-
 void lexer(struct Data *g) {
   const char *cc = c;
   while(*c)
@@ -47,7 +42,7 @@ void lexer(struct Data *g) {
 
       case '[':
         cc = c;
-        if(!*p) dlexer(g, ']');
+        if(!*p) while(*c++ != ']');
         while(*p) {
           c = cc; // restore char position to start of loop
           lexer(g);
@@ -89,7 +84,7 @@ void lexer(struct Data *g) {
         break;
 
       case '\\':
-        dlexer(g, '\n');
+        while(*c++ != '\n');
         break;
 
       case '@':
