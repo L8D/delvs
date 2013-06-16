@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #define c g->code
 #define p g->pointer
 #define f g->file
@@ -89,6 +90,10 @@ void lexer(struct Data *g) {
 
       case '@':
         printf("%hhd : %hhd : %hhd : %hhd : %hhd", *(p - 2), *(p - 1), *p, *(p + 1), *(p + 2));
+        break;
+
+      case '$':
+        sleep(*p);
         break;
 
       default:
