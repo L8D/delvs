@@ -67,6 +67,7 @@ void lexer(struct Data *g) {
 
       case '#':
         // open in read mode unless the cell is 1
+        if(f) fclose(f);
         f = fopen(p + 1, *p == 1 ? "w" : "r");
         break;
 
@@ -89,6 +90,8 @@ void lexer(struct Data *g) {
 
       case '\\':
         if(*(c + 1) == '[') dlexer(g);
+        else if(*(c + 1) == 'b')
+          printf("%hhd : %hhd : %hhd : %hhd : %hhd", *(p - 2), *(p - 1), *p, *(p + 1), *(p + 2));
         break;
 
       default:
