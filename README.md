@@ -16,9 +16,11 @@ Additions
 - `\ ...` ignore EVERYTHING until newline is reached. `while(*c) if(*c++ == '\') return;`
 - `@` prints value of current cell and surrounding 4 cells. Code:
 - `$` sleeps the current cell's value in seconds
+- `%` reads following cells as null-terminating string for address, and null-spaced port after that, then it opens a socket at that address. Code:` makesocket(p, (int)*++t);`
+- `^` sends current cell to socket.
+- `&` reads on byte from socket and apply to current cell.
 
 ### To do
-- implement a working socket system
 - implement an stdout flushing system
 - implement runtime args
 - implement namespaces(seperate arrays of 30000 chars)
