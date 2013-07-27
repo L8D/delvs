@@ -12,12 +12,10 @@ int makesocket(char *address, int port) {
 
   host = gethostbyname(address);
 
-  /*
   if(host == NULL) {
     fprintf(stderr, "Host not found\n");
     exit(1);
   }
-  */
 
   sock = socket(AF_INET, SOCK_STREAM, 0);
 

@@ -31,7 +31,7 @@ Corresponding lines of code:
 - `\ ...` `while(*c) if(*c++ == '\') return;`
 - `$` `sleep(*p);`
 - `%` `makesocket(p, (int)*++t);`
-- `^` `send(s, p, strlen(p), 0);`
+- `^` `send(s, p, 1, 0);`
 - `&` `recv(s, p, 1, 0);`
 
 ### To do

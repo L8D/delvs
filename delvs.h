@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <fcntl.h>
 #include <unistd.h>
 #include "sock.h"
 
@@ -100,13 +101,13 @@ void lexer(struct Data *g) {
 
       case '%':
         t = p;
-        while(*++t);
-        tt = *t * 256 + *(t - 1);
+        while(*t++);
+        tt = *t * 256 + *(t + 1);
         s = makesocket(p, tt);
         break;
 
       case '^':
-        send(s, p, strlen(p), 0);
+        send(s, p, 1, 0);
         break;
 
       case '&':
