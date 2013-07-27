@@ -18,6 +18,7 @@ Additions
 - `%` reads following cells as null-terminating string for address, and null-spaced port after that, then it opens a socket at that address.
 - `^` sends current cell to socket.
 - `&` reads on byte from socket and apply to current cell.
+- `*` simply flushes stdout.
 
 Corresponding lines of code:
 
@@ -33,13 +34,12 @@ Corresponding lines of code:
 - `%` `makesocket(p, (int)*++t);`
 - `^` `send(s, p, 1, 0);`
 - `&` `recv(s, p, 1, 0);`
+- `*` `fflush(stdout);`
 
 ### To do
-- implement an stdout flushing system
 - implement runtime args
 - implement namespaces(seperate arrays of 30000 chars)
 - (maybe) implement better way to divide
-- implement full integers
 
 Examples
 --------

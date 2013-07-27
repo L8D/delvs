@@ -114,6 +114,10 @@ void lexer(struct Data *g) {
         recv(s, p, 1, 0);
         break;
 
+      case '*':
+        fflush(stdout);
+        break;
+
       default:
         // everything else is comments
         break;
