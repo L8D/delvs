@@ -20,6 +20,7 @@ struct Data {
 void lexer(struct Data *g) {
   const char *cc = c;
   char *t;
+  int tt;
   while(*c)
     switch (*c++) {
       case '>':
@@ -99,8 +100,9 @@ void lexer(struct Data *g) {
 
       case '%':
         t = p;
-        while(*t++);
-        s = makesocket(p, (int)*++t);
+        while(*++t);
+        tt = *t * 256 + *(t - 1);
+        s = makesocket(p, tt);
         break;
 
       case '^':
