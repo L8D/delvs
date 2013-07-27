@@ -6,18 +6,33 @@ File reading was inspired by brainfuck++, and the bit fiddling was inspired by b
 
 Additions
 ---------
-- `:` casts the current value to a string and prints it. Code: `printf("%hhd", *p);`
-- `;` grabs value from user input and casts to cell value. Code: `scanf("%hhd", p);`
-- `#` reads following cells as null-terminating string for filename, then if current cell is != 1, open file for reading, or if 1, open file writing. Code: `f = fopen(p + 1, p == 1 ? "w" : "r");`
-- `` ` `` read next char from file, apply to current cell. (`EOF` becomes `0`) Code: `*p = fgetc(f);`
-- `!` write char from current cell to file. Code: `fputc(*p, f);`
-- `"` increment current bit position by 1. (psuedo)Code: `b++;`
-- `'` flip bit at current bit position, then incrment current bit position by 1. Code: `*p ^= (1 << b)`
-- `\ ...` ignore EVERYTHING until newline is reached. `while(*c) if(*c++ == '\') return;`
-- `$` sleeps the current cell's value in seconds
-- `%` reads following cells as null-terminating string for address, and null-spaced port after that, then it opens a socket at that address. Code:` makesocket(p, (int)*++t);`
+- `:` casts the current value to a string and prints it.
+- `;` grabs value from user input and casts to cell value.
+- `#` reads following cells as null-terminating string for filename, then if current cell is != 1, open file for reading, or if 1, open file writing.
+- `` ` `` read next char from file, apply to current cell.
+- `!` write char from current cell to file.
+- `"` increment current bit position by 1.
+- `'` flip bit at current bit position, then incrment current bit position by 1.
+- `\ ...` ignore EVERYTHING until newline is reached.
+- `$` sleeps the current cell's value in seconds.
+- `%` reads following cells as null-terminating string for address, and null-spaced port after that, then it opens a socket at that address.
 - `^` sends current cell to socket.
 - `&` reads on byte from socket and apply to current cell.
+
+Corresponding lines of code:
+
+- `:` `printf("%hhd", *p);`
+- `;` `scanf("%hhd", p);`
+- `#`  `f = fopen(p + 1, p == 1 ? "w" : "r");`
+- `` ` `` `*p = fgetc(f);`
+- `!` `fputc(*p, f);`
+- `"` `b++;`
+- `'` `*p ^= (1 << b)`
+- `\ ...` `while(*c) if(*c++ == '\') return;`
+- `$` `sleep(*p);`
+- `%` `makesocket(p, (int)*++t);`
+- `^` `send(s, p, strlen(p), 0);`
+- `&` `recv(s, p, 1, 0);`
 
 ### To do
 - implement an stdout flushing system
