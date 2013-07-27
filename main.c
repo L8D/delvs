@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     long size;
 
     fp = fopen(argv[1], "r");
-    
+
     if(fp == NULL) {
       printf("File: \"%s\" not found\n", argv[1]);
       return 1;

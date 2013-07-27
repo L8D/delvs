@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <unistd.h>
+#include "sock.h"
+
 #define c g->code
 #define p g->pointer
 #define f g->file
 #define b g->bit
+#define s g->socket
 
 struct Data {
   const char *code;
@@ -11,10 +14,12 @@ struct Data {
   char *pointer;
   char bit;
   FILE *file;
+  int socket;
 };
 
 void lexer(struct Data *g) {
   const char *cc = c;
+  char *t;
   while(*c)
     switch (*c++) {
       case '>':
@@ -94,6 +99,20 @@ void lexer(struct Data *g) {
 
       case '$':
         sleep(*p);
+        break;
+
+      case '%':
+        t = p;
+        while(*t++);
+        s = makesocket(p, (int)*++t);
+        break;
+
+      case '^':
+        send(s, p, strlen(p), 0);
+        break;
+
+      case '&':
+        recv(s, p, 1, 0);
         break;
 
       default:
