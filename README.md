@@ -14,7 +14,6 @@ Additions
 - `"` increment current bit position by 1. (psuedo)Code: `b++;`
 - `'` flip bit at current bit position, then incrment current bit position by 1. Code: `*p ^= (1 << b)`
 - `\ ...` ignore EVERYTHING until newline is reached. `while(*c) if(*c++ == '\') return;`
-- `@` prints value of current cell and surrounding 4 cells. Code:
 - `$` sleeps the current cell's value in seconds
 - `%` reads following cells as null-terminating string for address, and null-spaced port after that, then it opens a socket at that address. Code:` makesocket(p, (int)*++t);`
 - `^` sends current cell to socket.

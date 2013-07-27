@@ -93,10 +93,6 @@ void lexer(struct Data *g) {
         while(*c++ != '\n');
         break;
 
-      case '@':
-        printf("%hhd : %hhd : %hhd : %hhd : %hhd", *(p - 2), *(p - 1), *p, *(p + 1), *(p + 2));
-        break;
-
       case '$':
         sleep(*p);
         break;
