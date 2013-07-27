@@ -37,9 +37,10 @@ int main(int argc, char *argv[]) {
     g.pointer = &g.vars[15000];
 
     lexer(&g);
+    return *g.pointer; // return the value of the current cell when the program finishes...
   }
   else {
     printf("Usage: %s <filename>\n", argv[0]);
+    return 0;
   }
-  return 0;
 }
